@@ -11,13 +11,15 @@ module MigrationOpener
     end
   end
 
-  Rails::Generators::Migration.class_eval do
-    alias_method :origin_migration_template, :migration_template
+  if defined?(Rails::Generators::Migration)
+    Rails::Generators::Migration.class_eval do
+      alias_method :origin_migration_template, :migration_template
 
-    def migration_template(source, destination=nil, config={})
-      file_created = origin_migration_template(source, destination, config)
-      if MigrationOpener.enabled?
-        system("#{MigrationOpener.editor_bin} #{file_created}")
+      def migration_template(source, destination=nil, config={})
+        file_created = origin_migration_template(source, destination, config)
+        if MigrationOpener.enabled?
+          system("#{MigrationOpener.editor_bin} #{file_created}")
+        end
       end
     end
   end
