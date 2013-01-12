@@ -9,6 +9,7 @@ Gem::Specification.new do |gem|
   gem.authors       = ["Kir Shatrov"]
   gem.email         = ["shatrov@me.com"]
   gem.description   = %q{Tiny gem open to migration after it's generated throught rails generate migration ...}
+  gem.summary       = %q{Tiny gem open to migration after it's generated throught rails generate migration ...}
   gem.homepage      = "https://github.com/evrone/migration_opener"
 
   gem.files         = `git ls-files`.split($/)
