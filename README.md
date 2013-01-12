@@ -16,29 +16,17 @@ And then execute:
 
 ## Usage
 
-By default migration_opener opens migration with your `$EDITOR` env variable, but you can re-define it in `config/initializers/migration_opener.rb`, for example:
-
-```ruby
-MigrationOpener.editor = :subl
-```
-
-...if you use Sublime Text, or
-
-```ruby
-MigrationOpener.editor = :textmate
-```
-
-if you use TextMate.
-
-Of course, you can define any editor:
-
-```ruby
-MigrationOpener.editor = "/usr/bin/myeditor --someflag"
-```
-
-**or even throught special ENV variable:**
+By default migration_opener opens migration with `$EDITOR` variable, but you can change it using special `$MIGRATION_EDITOR` variable:
 
 `export MIGRATION_EDITOR="/usr/bin/editor --flag"`
+
+for Sublime Text 2 this option is:
+
+`export MIGRATION_EDITOR="subl -n"`
+
+for Textmate:
+
+`export MIGRATION_EDITOR="mate"`
 
 ## Contributing
 

@@ -1,21 +1,8 @@
 require "migration_opener/version"
 
 module MigrationOpener
-  mattr_accessor :editor
-
   def self.editor_bin
-    if editor.present?
-      case editor
-      when :subl
-        "subl -n"
-      when :textmate
-        "mate"
-      when :vim
-        "vi"
-      else
-        editor
-      end
-    elsif ENV['MIGRATION_EDITOR'].present?
+    if ENV['MIGRATION_EDITOR'].present?
       ENV['MIGRATION_EDITOR']
     else
       ENV['EDITOR']
