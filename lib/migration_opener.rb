@@ -1,11 +1,13 @@
 require "migration_opener/version"
 
 module MigrationOpener
-  def self.editor_bin
-    if ENV['MIGRATION_EDITOR'].present?
-      ENV['MIGRATION_EDITOR']
-    else
-      ENV['EDITOR']
+  class << self
+    def editor_bin
+      ENV['MIGRATION_EDITOR'].presence || ENV['EDITOR'].presence
+    end
+
+    def enabled?
+      editor_bin.present?
     end
   end
 
@@ -14,7 +16,9 @@ module MigrationOpener
 
     def migration_template(source, destination=nil, config={})
       file_created = origin_migration_template(source, destination, config)
-      system("#{MigrationOpener.editor_bin} #{file_created}")
+      if MigrationOpener.enabled?
+        system("#{MigrationOpener.editor_bin} #{file_created}")
+      end
     end
   end
 
