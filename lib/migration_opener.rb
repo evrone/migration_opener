@@ -12,6 +12,9 @@ module MigrationOpener
   end
 
   if defined?(Rails::Generators::Migration)
+    # force load Thor (it's not autoloaded in Rails 4.1)
+    Thor::Actions::CreateFile
+
     Rails::Generators::Migration.class_eval do
       alias_method :origin_migration_template, :migration_template
 
