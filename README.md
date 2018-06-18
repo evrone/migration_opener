@@ -14,6 +14,12 @@ And then execute:
 
     $ bundle
 
+To prevent enabling gem behavior for all project's developers, add to Gemfile:
+
+    gem 'migration_opener', require: ENV.key?('AUTOOPEN_MIGRATIONS')
+
+This will autoopen migrations only for those, who have set up `AUTOOPEN_MIGRATIONS` environment variable on their development machines.
+
 ## Usage
 
 By default migration_opener opens migration with `$EDITOR` variable, but you can change it using special `$MIGRATION_EDITOR` variable:
