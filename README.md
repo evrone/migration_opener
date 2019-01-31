@@ -1,6 +1,5 @@
-# Migration opener
-
 # PLEASE NOTE, THIS PROJECT IS NO LONGER BEING MAINTAINED
+# Migration opener
 
 Each time after I generated new migration in Rails, 
 I copy-pasted path of generated file and typed 
@@ -63,7 +62,7 @@ The changelog is [here](CHANGELOG.md).
 
 * [Kir Shatrov](https://github.com/kirs) - *Initial work*
 
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
+See also the list of [contributors](https://github.com/evrone/migration_opener/contributors) who participated in this project.
 
 ## License
 
